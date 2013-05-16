@@ -1,0 +1,22 @@
+<form class="form-search">
+    <div class="input-append">
+        <input type="text" ng-model="query" class="input-medium search-query" placeholder="Search">
+        <button ng-click="reset()" type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+    <button ng-click="query=''; reset()" ng-disabled="!query" type="submit" class="btn">Reset</button>
+</form>
+
+<table class="table table-striped table-condensed table-hover">
+  <thead>
+    <th sorted="Make">Make</th>
+    <th sorted="Model">Model</th>
+
+  </thead>
+  <tbody>
+    <tr ng-repeat="phone in phones">
+      <td>{{phone.Make}}</td>
+      <td>{{phone.Model}}</td>
+    </tr>
+  </tbody>
+</table>
+<a ng-show="has_more()" ng-click="show_more()">Show more</a>
