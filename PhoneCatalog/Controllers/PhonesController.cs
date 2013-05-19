@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Web.Http;
 using MongoRepository;
 using PhoneCatalog.Models;
+using PhoneCatalog.Filters;
 using System.Linq.Dynamic;
 
 using MongoDB.Bson;
@@ -65,9 +66,10 @@ namespace PhoneCatalog.Controllers
         }
 
         // POST api/phones
-        public void Post([FromBody]Phone phone)
+        public Phone Post([FromBody]Phone phone)
         {
-            phoneRepository.Add(phone);
+            var newPhone = phoneRepository.Add(phone);
+            return newPhone;
         }
 
         // PUT api/phones/5172b45dd273a00a303ea054

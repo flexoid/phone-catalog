@@ -1,35 +1,3 @@
-var CatalogApp = angular.module("CatalogApp", ["ngResource"]).
-  config(function($routeProvider) {
-    $routeProvider.
-      when('/', { controller: ListCtrl, templateUrl: 'list.html' }).
-      otherwise({ redirectTo: '/' });
-  });
-
-CatalogApp.factory('Phone', function($resource) {
-  return $resource('/api/phones/:id', { id: '@id' }, { update: { method: 'PUT' } } );
-});
-
-CatalogApp.directive('sorted', function() {
-  return {
-    scope: true,
-    transclude: true,
-    template: '<a ng-click="do_sort()" ng-transclude></a>' +
-      '<span ng-show="do_show(true)"><i class="icon-arrow-down"></i></span>' +
-      '<span ng-show="do_show(false)"><i class="icon-arrow-up"></i></span>',
-    controller: function($scope, $element, $attrs) {
-      $scope.sort = $attrs.sorted;
-
-      $scope.do_sort = function() {
-        $scope.sort_by($scope.sort);
-      };
-
-      $scope.do_show = function(asc) {
-        return ($scope.is_desc != asc) && ($scope.sort_order == $scope.sort);
-      };
-    }
-  };
-});
-
 var ListCtrl = function($scope, $location, Phone) {
   $scope.search = function() {
     Phone.query({

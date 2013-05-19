@@ -1,16 +1,36 @@
 ﻿<!DOCTYPE html>
-<html ng-app="CatalogApp" xmlns="http://www.w3.org/1999/xhtml">
+<html ng-app="CatalogApp">
 <head>
-  <script src="Scripts/jquery-1.9.1.js"></script>
-  <script src="Scripts/angular.js"></script>
-  <script src="Scripts/angular-resource.js"></script>
-  <script src="Scripts/app.js"></script>
-  <link rel="stylesheet" type="text/css" href="Content/bootstrap.css" />
   <title>Phone Catalog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="Content/bootstrap.css" />
 </head>
 <body>
   <div class="container">
-    <div ng-view></div>
+    <div class="row">
+      <h1 class="text-center">Catalog</h1>
+    </div>
+    <div class="row">
+      <div ng-view></div>
+    </div>
   </div>
+
+  <script src="Scripts/lib/jquery-1.9.1.js"></script>
+  <script src="Scripts/lib/angular.js"></script>
+  <script src="Scripts/lib/angular-resource.js"></script>
+
+  <script src="Scripts/app/app.js"></script>
+
+  <script src="Scripts/app/factories/phone.js"></script>
+  <script src="Scripts/app/factories/user.js"></script>
+
+  <script src="Scripts/app/controllers/show_ctrl.js"></script>
+  <script src="Scripts/app/controllers/list_ctrl.js"></script>
+  <script src="Scripts/app/controllers/add_ctrl.js"></script>
+  <script src="Scripts/app/controllers/delete_ctrl.js"></script>
+  <script src="Scripts/app/controllers/login_ctrl.js"></script>
+
+  <script src="Scripts/app/directives/sorted.js"></script>
 </body>
 </html>
