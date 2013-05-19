@@ -1,4 +1,4 @@
-window.CatalogApp = angular.module("CatalogApp", ["ngResource"]);
+window.CatalogApp = angular.module('CatalogApp', ['ngResource', 'ngCookies']);
 
 CatalogApp.config(function($routeProvider) {
   $routeProvider.

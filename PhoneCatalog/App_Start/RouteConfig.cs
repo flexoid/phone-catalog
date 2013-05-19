@@ -14,6 +14,13 @@ namespace PhoneCatalog
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "Validate Auth",
+                "users/validate_auth",
+                new { controller = "Users", action = "ValidateAuth" },
+                new { httpMethod = new HttpMethodConstraint("GET") }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}"
             );

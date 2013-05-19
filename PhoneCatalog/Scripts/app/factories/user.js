@@ -1,4 +1,4 @@
-CatalogApp.factory('User', function() {
+CatalogApp.factory('User', function($http) {
   var _this = this;
   this.authenticated = false;
 
@@ -7,13 +7,12 @@ CatalogApp.factory('User', function() {
       return _this.authenticated;
     },
     login: function(user, password, callback) {
-      var result = null;
-      if (user === password)
-      {
+      $http.get('/api/users/validate_auth').success(function(response) {
         _this.authenticated = true;
-        _this.result = true;
-      }
-      callback(result);
+        callback(response);
+      }).error(function() {
+        callback(null);
+      });
     },
     logout: function(callback) {
     }

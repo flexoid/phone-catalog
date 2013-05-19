@@ -11,7 +11,7 @@ namespace PhoneCatalog.Models
     public class User : Entity
     {
         public string Login { get; set; }
-        public string PasswordEncrypted { get; set; }
-        public bool Admin { get; set; }
+        public string Password { get; set; }
+        public string Admin { get; set; }
     }
 }

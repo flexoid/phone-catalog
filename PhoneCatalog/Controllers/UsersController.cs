@@ -7,6 +7,7 @@ using System.Web.Http;
 
 using MongoRepository;
 using PhoneCatalog.Models;
+using PhoneCatalog.Filters;
 
 namespace PhoneCatalog.Controllers
 {
@@ -42,5 +43,13 @@ namespace PhoneCatalog.Controllers
         {
         }
         */
+
+
+        [AcceptVerbs("GET")]
+        [BasicAuthentication]
+        public User ValidateAuth()
+        {
+            return new User();
+        }
     }
 }

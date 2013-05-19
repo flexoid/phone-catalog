@@ -23,6 +23,7 @@ namespace PhoneCatalog.Controllers
         private static readonly MongoRepository<Phone> phoneRepository = new MongoRepository<Phone>();
 
         // GET api/phones
+        [BasicAuthentication]
         public IEnumerable<Phone> GetPhones(string q = null, string sort = null, bool desc = false, int? limit = null, int offset = 0)
         {
             MongoCursor<Phone> phones;
