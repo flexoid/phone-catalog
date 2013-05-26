@@ -2,7 +2,7 @@
 
 <div class="row">
   <div id="sidebar" class="span4">
-    <div data-spy="affix" data-offset-top="0">
+    <div>
        <form class="form-search">
           <div class="input-append">
               <input type="text" ng-model="query" class="input-medium search-query" placeholder="Search">
@@ -31,9 +31,9 @@
           <thead>
             <th></th>
             <th></th>
-            <th sorted="Make">Make</th>
-            <th sorted="Model">Model</th>
-            <th>Actions</th>
+            <!-- <th sorted="Make">Производитель</th>
+            <th sorted="Model">Модель</th> -->
+            <th></th>
           </thead>
           <tbody infinite-scroll="show_more()" infinite-scroll-distance="1" infinite-scroll-disabled="!canLoadMore()" >
             <tr ng-repeat="phone in phones">
@@ -45,12 +45,14 @@
                   <img ng-src="/Images/phones/{{phone.ImageUrl}}"></img>
                 </a>
               </td>
-              <td>{{phone.Make}}</td>
-              <td>{{phone.Model}}</td>
               <td>
+                <strong>{{phone.Make}} {{phone.Model}}</strong>
+                <div>{{phone.summary()}}</div>
+              </td>
+              <!-- <td>
                 <a href="#/phones/{{phone.Id}}"><i class="icon-th-list"></i> Details</a>
                 <a href="#/phones/{{phone.Id}}/delete"><i class="icon-trash"></i> Delete</a>
-              </td>
+              </td> -->
             </tr>
           </tbody>
         </table>
@@ -59,3 +61,7 @@
     <div>
   </div>
 </div>
+
+<script>
+  $('#sidebar > div').affix()
+</script>
