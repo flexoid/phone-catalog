@@ -1,10 +1,11 @@
-window.CatalogApp = angular.module('CatalogApp', ['ngResource', 'ngCookies']);
+window.CatalogApp = angular.module('CatalogApp', ['ngResource', 'ngCookies', 'infinite-scroll']);
 
 CatalogApp.config(function($routeProvider) {
   $routeProvider.
     when('/', { redirectTo: '/phones' }).
     when('/phones', { controller: ListCtrl, templateUrl: 'Templates/list.html' }).
     when('/phones/add', { controller: AddCtrl, templateUrl: 'Templates/add.html' }).
+    when('/phones/compare', { controller: CompareCtrl, templateUrl: 'Templates/compare.html' }).
     when('/phones/:id', { controller: ShowCtrl, templateUrl: 'Templates/show.html' }).
     when('/phones/:id/delete', { controller: DeleteCtrl, template: ' ' }).
 

@@ -1,5 +1,6 @@
-var ListCtrl = function($scope, $location, Phone) {
+var ListCtrl = function($scope, $location, Phone, Comparer) {
   $scope.search = function() {
+    $scope.is_busy = true;
     Phone.query({
         q: $scope.query,
         sort: $scope.sort_order,
@@ -9,6 +10,7 @@ var ListCtrl = function($scope, $location, Phone) {
       }, function(data) {
         $scope.more = data.length === $scope.limit;
         $scope.phones = $scope.phones.concat(data);
+        $scope.is_busy = false;
     });
   };
 
@@ -33,6 +35,10 @@ var ListCtrl = function($scope, $location, Phone) {
     return $scope.more;
   };
 
+  $scope.canLoadMore = function() {
+    return !$scope.is_busy && $scope.more;
+  };
+
   $scope.reset = function() {
     $scope.limit = 10;
     $scope.offset = 0;
@@ -41,9 +47,30 @@ var ListCtrl = function($scope, $location, Phone) {
     $scope.search();
   };
 
+  $scope.compareCheckboxChanged = function(phone) {
+    Comparer.updateComparingState(phone);
+  };
+
+  $scope.comparingItemsCount = function() {
+    return Comparer.itemsCount();
+  };
+
+  $scope.comparingItems = function() {
+    return Comparer.itemsToCompare;
+  };
+
+  $scope.clearComparingItems = function() {
+    Comparer.reset();
+  };
+
+  $scope.isSelectedForComparing = function(phone) {
+    return !!Comparer.itemsToCompare[phone];
+  }
+
   $scope.sort_order = "Make";
   $scope.is_desc = false;
   $scope.query = "";
+  $scope.is_busy = false;
 
   $scope.reset();
 };

@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="span12">
+    <table class="table table-bordered">
+      <tr class="info">
+        <td colspan="{{1 + comparingItemsCount()}}">Основные</td>
+      </tr>
+      <tr>
+        <td>Производитель</td>
+        <td ng-repeat="phone in comparingItems()">{{phone.Make}}</td>
+      </tr>
+      <tr>
+        <td>Модель</td>
+        <td ng-repeat="phone in comparingItems()">{{phone.Model}}</td>
+      </tr>
+      <tr>
+        <td>Дата выхода</td>
+        <td ng-repeat="phone in comparingItems()">{{phone.Date}}</td>
+      </tr>
+      <tr>
+        <td>Тип</td>
+        <td ng-repeat="phone in comparingItems()">{{phone.Type}}</td>
+      </tr>
+      <tr>
+        <td>Операционная система</td>
+        <td ng-repeat="phone in comparingItems()">{{phone.OS}}</td>
+      </tr>
+      <tr>
+        <td>Процессор</td>
+        <td ng-repeat="phone in comparingItems()">{{phone.Processor}}</td>
+      </tr>
+      <tr>
+        <td>Тактовая частота</td>
+        <td ng-repeat="phone in comparingItems()">{{phone.Clock}}</td>
+      </tr>
+      <tr>
+        <td>Емкость батареи</td>
+        <td ng-repeat="phone in comparingItems()">{{phone.BatteryCapacity}}</td>
+      </tr>
+      <tr class="info">
+        <td colspan="{{1 + comparingItemsCount()}}">Конструкция</td>
+      </tr>
+      <tr>
+        <td>Длина</td>
+        <td ng-repeat="phone in comparingItems()">{{phone.Length}}</td>
+      </tr>
+      <tr>
+        <td>Ширина</td>
+        <td ng-repeat="phone in comparingItems()">{{phone.Width}}</td>
+      </tr>
+      <tr>
+        <td>Толщина</td>
+        <td ng-repeat="phone in comparingItems()">{{phone.Thickness}}</td>
+      </tr>
+      <tr>
+        <td>Вес</td>
+        <td ng-repeat="phone in comparingItems()">{{phone.Weight}}</td>
+      </tr>
+      <tr class="info">
+        <td colspan="{{1 + comparingItemsCount()}}">Экран</td>
+      </tr>
+      <tr>
+        <td>Размер</td>
+        <td ng-repeat="phone in comparingItems()">{{phone.ScreenSize}}</td>
+      </tr>
+      <tr class="info">
+        <td colspan="{{1 + comparingItemsCount()}}">Камера</td>
+      </tr>
+      <tr>
+        <td>Разрешение</td>
+        <td ng-repeat="phone in comparingItems()">{{phone.Resolution}}</td>
+      </tr>
+      <tr>
+        <td>Количество пикселей матрицы</td>
+        <td ng-repeat="phone in comparingItems()">{{phone.CameraPixelCount}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

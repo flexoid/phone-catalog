@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" type="text/css" href="Content/bootstrap.css" />
+  <link rel="stylesheet" href="Content/custom.css" />
 </head>
 <body>
   <div class="container">
-    <div class="row">
-      <div ng-view></div>
-    </div>
+    <div ng-view></div>
   </div>
 
   <script src="Scripts/lib/jquery-1.9.1.js"></script>
   <script src="Scripts/lib/angular.js"></script>
+  <script src="Scripts/lib/bootstrap.min.js"></script>
   <script src="Scripts/lib/angular-resource.js"></script>
   <script src="Scripts/lib/angular-cookies.js"></script>
+  <script src='Scripts/lib/ng-infinite-scroll.min.js'></script>
 
   <script src="Scripts/app/app.js"></script>
 
@@ -26,11 +27,13 @@
   <script src="Scripts/app/factories/base64.js"></script>
   <script src="Scripts/app/factories/auth.js"></script>
   <script src="Scripts/app/factories/auth_http_interceptor.js"></script>
+  <script src="Scripts/app/factories/comparer.js"></script>
 
   <script src="Scripts/app/controllers/show_ctrl.js"></script>
   <script src="Scripts/app/controllers/list_ctrl.js"></script>
   <script src="Scripts/app/controllers/add_ctrl.js"></script>
   <script src="Scripts/app/controllers/delete_ctrl.js"></script>
+  <script src="Scripts/app/controllers/compare_ctrl.js"></script>
   <script src="Scripts/app/controllers/login_ctrl.js"></script>
 
   <script src="Scripts/app/directives/sorted.js"></script>

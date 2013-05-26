@@ -1,34 +1,61 @@
-<!-- <div class="span4"> -->
-  <form class="form-search">
-      <div class="input-append">
-          <input type="text" ng-model="query" class="input-medium search-query" placeholder="Search">
-          <button ng-click="reset()" type="submit" class="btn"><i class="icon-search"></i></button>
+<!-- <a href="#/phones/add">Add new phone</a> -->
+
+<div class="row">
+  <div id="sidebar" class="span4">
+    <div data-spy="affix" data-offset-top="0">
+       <form class="form-search">
+          <div class="input-append">
+              <input type="text" ng-model="query" class="input-medium search-query" placeholder="Search">
+              <button ng-click="reset()" type="submit" class="btn"><i class="icon-search"></i></button>
+          </div>
+          <button ng-click="query=''; reset()" ng-disabled="!query" type="submit" class="btn">Reset</button>
+      </form>
+
+      <div class="comparation" ng-show="comparingItemsCount() > 0">
+        <a class="btn btn-primary" ng-show="comparingItemsCount() > 1" href="#/phones/compare">Сравнить: {{comparingItemsCount()}}</a>
+        <button class="btn btn-warning" ng-show="comparingItemsCount() > 1" ng-click="clearComparingItems()">Очистить</button>
+        <ul class="unstyled">
+          <li ng-repeat="(id, phone) in comparingItems()" class="well well-small">
+            <img ng-src="/Images/phones/{{phone.ImageUrl}}"></img>
+            {{phone.Make}} {{phone.Model}}
+          </li>
+        </ul>
       </div>
-      <button ng-click="query=''; reset()" ng-disabled="!query" type="submit" class="btn">Reset</button>
-  </form>
+    </div>
+  </div>
 
-  <!-- <a href="#/phones/add">Add new phone</a> -->
-<!-- </div> -->
-
-<div class="span8">
-  <table class="table table-striped table-condensed table-hover">
-    <thead>
-      <th></th>
-      <th sorted="Make">Make</th>
-      <th sorted="Model">Model</th>
-      <th>Actions</th>
-    </thead>
-    <tbody>
-      <tr ng-repeat="phone in phones">
-        <td><img src="/Images/phones/{{phone.ImageUrl}}"></img></td>
-        <td>{{phone.Make}}</td>
-        <td>{{phone.Model}}</td>
-        <td>
-          <a href="#/phones/{{phone.Id}}"><i class="icon-th-list"></i> Details</a>
-          <a href="#/phones/{{phone.Id}}/delete"><i class="icon-trash"></i> Delete</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <a ng-show="has_more()" ng-click="show_more()">Show more</a>
+  <div class="span8">
+    <div>
+      <form>
+        <table class="table table-striped table-condensed table-hover">
+          <thead>
+            <th></th>
+            <th></th>
+            <th sorted="Make">Make</th>
+            <th sorted="Model">Model</th>
+            <th>Actions</th>
+          </thead>
+          <tbody infinite-scroll="show_more()" infinite-scroll-distance="1" infinite-scroll-disabled="!canLoadMore()" >
+            <tr ng-repeat="phone in phones">
+              <td>
+                <input type="checkbox" ng-click="compareCheckboxChanged(phone)" ng-checked="isSelectedForComparing(phone.Id)">
+              </td>
+              <td>
+                <a href="#/phones/{{phone.Id}}">
+                  <img ng-src="/Images/phones/{{phone.ImageUrl}}"></img>
+                </a>
+              </td>
+              <td>{{phone.Make}}</td>
+              <td>{{phone.Model}}</td>
+              <td>
+                <a href="#/phones/{{phone.Id}}"><i class="icon-th-list"></i> Details</a>
+                <a href="#/phones/{{phone.Id}}/delete"><i class="icon-trash"></i> Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+      <!-- <a ng-show="has_more()" ng-click="show_more()">Show more</a> -->
+    <div>
+  </div>
 </div>
