@@ -34,7 +34,7 @@ var ListCtrl = function($scope, $location, Phone) {
   };
 
   $scope.reset = function() {
-    $scope.limit = 4;
+    $scope.limit = 10;
     $scope.offset = 0;
     $scope.phones = [];
     $scope.more = true;
