@@ -1,4 +1,4 @@
-window.CatalogApp = angular.module('CatalogApp', ['ngResource', 'ngCookies', 'infinite-scroll']);
+window.CatalogApp = angular.module('CatalogApp', ['ngResource', 'ngCookies', 'ui.bootstrap', 'infinite-scroll']);
 
 CatalogApp.config(function($routeProvider) {
   $routeProvider.

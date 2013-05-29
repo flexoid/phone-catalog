@@ -5,7 +5,7 @@
     <div>
        <form class="form-search">
           <div class="input-append">
-              <input type="text" ng-model="query" class="input-medium search-query" placeholder="Search">
+              <input type="text" ng-model="query" ng-change="reset()" class="input-medium search-query" placeholder="Search">
               <button ng-click="reset()" type="submit" class="btn"><i class="icon-search"></i></button>
           </div>
           <button ng-click="query=''; reset()" ng-disabled="!query" type="submit" class="btn">Reset</button>
@@ -46,7 +46,7 @@
                 </a>
               </td>
               <td>
-                <strong>{{phone.Make}} {{phone.Model}}</strong>
+                <a href="#/phones/{{phone.Id}}"><strong>{{phone.Make}} {{phone.Model}}</strong></a>
                 <div>{{phone.summary()}}</div>
               </td>
               <!-- <td>

@@ -7,3 +7,7 @@
 .comparation img {
   max-width: 20px;
 }
+
+.comparing td.image {
+  text-align: center;
+}

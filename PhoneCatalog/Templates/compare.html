@@ -1,6 +1,10 @@
-<div class="row">
+<div class="row comparing">
   <div class="span12">
     <table class="table table-bordered">
+      <tr>
+        <td></td>
+        <td class="image" ng-repeat="phone in comparingItems()"><img ng-src="/Images/phones/{{phone.ImageUrl}}"></img></td>
+      </tr>
       <tr class="info">
         <td colspan="{{1 + comparingItemsCount()}}">Основные</td>
       </tr>

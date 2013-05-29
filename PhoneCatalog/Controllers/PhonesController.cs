@@ -86,5 +86,17 @@ namespace PhoneCatalog.Controllers
             if (!phoneRepository.Delete(id))
                 throw new HttpResponseException(HttpStatusCode.NotFound);
         }
+
+        [AcceptVerbs("GET")]
+        public IEnumerable<String> TypeAhead(string text)
+        {
+            MongoCursor<Phone> phones;
+            phones = phoneRepository.Collection.Find((Query.Or(
+                Query.EQ("Make", new Regex(text, RegexOptions.IgnoreCase)),
+                Query.EQ("Model", new Regex(text, RegexOptions.IgnoreCase))
+            )));
+            phones.SetLimit(10);
+            return phones.Select(phone => String.Format("{0} {1}", phone.Make, phone.Model));
+        }
     }
 }
