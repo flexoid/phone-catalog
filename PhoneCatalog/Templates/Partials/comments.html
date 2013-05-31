@@ -1,0 +1,23 @@
+<div class="span10">
+  <h2>Комментарии</h2>
+
+  <div ng-animate="'animate'" ng-repeat="comment in phone.Comments" class="comments">
+    <strong>{{comment.Author}}</strong>
+    <span>{{comment.CreatedAt | date: 'medium'}}</span>
+    <p>{{comment.Text}}</p>
+  </div>
+
+  <div ng-controller="CommentsCtrl">
+    <form>
+      <fieldset>
+        <legend>Add new comment</legend>
+        <label>Author name</label>
+        <input type="text" name="author" ng-model="author">
+        <label>Text</label>
+        <textarea name="text" ng-model="text"></textarea>
+        <br>
+        <button type="submit" ng-click="addComment()" class="btn">Save</button>
+      </fieldset>
+    </form>
+  </div>
+</div>

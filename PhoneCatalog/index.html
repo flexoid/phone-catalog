@@ -9,21 +9,24 @@
 </head>
 <body>
   <div class="container">
+    <div ng-include="'Templates/Partials/header.html'"></div>
     <div ng-view></div>
+    <div ng-include="'Templates/Partials/footer.html'"></div>
   </div>
 
   <script src="Scripts/lib/jquery-1.9.1.js"></script>
-  <script src="Scripts/lib/angular.js"></script>
+  <script src="Scripts/lib/1.1.5/angular.js"></script>
   <script src="Scripts/lib/bootstrap.min.js"></script>
   <script src="Scripts/lib/ui-bootstrap-tpls-0.3.0.min.js"></script>
-  <script src="Scripts/lib/angular-resource.js"></script>
-  <script src="Scripts/lib/angular-cookies.js"></script>
+  <script src="Scripts/lib/1.1.5/angular-resource.js"></script>
+  <script src="Scripts/lib/1.1.5/angular-cookies.js"></script>
   <script src='Scripts/lib/ng-infinite-scroll.min.js'></script>
 
   <script src="Scripts/app/app.js"></script>
 
   <script src="Scripts/app/factories/phone.js"></script>
   <script src="Scripts/app/factories/user.js"></script>
+  <script src="Scripts/app/factories/comment.js"></script>
 
   <script src="Scripts/app/factories/base64.js"></script>
   <script src="Scripts/app/factories/auth.js"></script>
@@ -36,6 +39,7 @@
   <script src="Scripts/app/controllers/delete_ctrl.js"></script>
   <script src="Scripts/app/controllers/compare_ctrl.js"></script>
   <script src="Scripts/app/controllers/login_ctrl.js"></script>
+  <script src="Scripts/app/controllers/comments_ctrl.js"></script>
 
   <script src="Scripts/app/directives/sorted.js"></script>
 </body>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using MongoRepository;
@@ -9,7 +10,9 @@ namespace PhoneCatalog.Models
     [CollectionName("phones")]
     public class Phone : Entity
     {
+        [Required]
         public string Make { get; set; }
+        [Required]
         public string Model { get; set; }
         public string ImageUrl { get; set; }
         public string Date { get; set; }
@@ -25,5 +28,12 @@ namespace PhoneCatalog.Models
         public string Resolution { get; set; }
         public string CameraPixelCount { get; set; }
         public string BatteryCapacity { get; set; }
+
+        public List<Comment> Comments { get; set; }
+
+        public Phone()
+        {
+            Comments = new List<Comment>();
+        }
     }
 }

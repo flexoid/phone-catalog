@@ -22,10 +22,22 @@ namespace PhoneCatalog
             );
 
             routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                name: "Comments",
+                routeTemplate: "api/phones/{phoneId}/comments/{id}",
+                defaults: new { controller = "Comments", id = RouteParameter.Optional }
+                );
+
+            routes.MapHttpRoute(
+                name: "Phones",
+                routeTemplate: "api/phones/{id}",
+                defaults: new { controller = "Phones", id = RouteParameter.Optional }
             );
+
+            routes.MapHttpRoute(
+               name: "Users",
+               routeTemplate: "api/users/{id}",
+               defaults: new { controller = "Users", id = RouteParameter.Optional }
+           );
         }
     }
 }
