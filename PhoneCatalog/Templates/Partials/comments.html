@@ -12,9 +12,9 @@
       <fieldset>
         <legend>Add new comment</legend>
         <label>Author name</label>
-        <input type="text" name="author" ng-model="author">
+        <input type="text" name="author" ng-model="author" required>
         <label>Text</label>
-        <textarea name="text" ng-model="text"></textarea>
+        <textarea name="text" ng-model="text" required></textarea>
         <br>
         <button type="submit" ng-click="addComment()" class="btn">Save</button>
       </fieldset>

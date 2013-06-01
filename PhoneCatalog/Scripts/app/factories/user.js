@@ -30,6 +30,7 @@ CatalogApp.factory('User', function ($http, $cookieStore) {
       });
     },
     logout: function(callback) {
+      _this.authenticated = false;
     }
   };
 });

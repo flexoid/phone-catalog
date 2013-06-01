@@ -12,6 +12,11 @@
   text-align: center;
 }
 
+.affix {
+  margin-top: -60px;
+  width: 300px;
+}
+
 .animate-enter,
 .animate-leave
 {

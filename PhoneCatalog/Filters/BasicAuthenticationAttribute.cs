@@ -20,18 +20,22 @@ namespace PhoneCatalog.Filters
                 try
                 {
                     string authToken = actionContext.Request.Headers.Authorization.Parameter;
-                    string decodedToken = Encoding.UTF8.GetString(Convert.FromBase64String(authToken));
-
-                    string username = decodedToken.Substring(0,
-                                                             decodedToken.IndexOf(":", System.StringComparison.Ordinal));
-                    string password =
-                        decodedToken.Substring(decodedToken.IndexOf(":", System.StringComparison.Ordinal) + 1);
-
-                    User user = userRepository.GetSingle(u => u.Login == username && u.Password == password);
-                    if (user != null)
+                    if (!String.IsNullOrWhiteSpace(authToken))
                     {
-                        base.OnActionExecuting(actionContext);
-                        return;
+                        string decodedToken = Encoding.UTF8.GetString(Convert.FromBase64String(authToken ?? ""));
+
+                        string username = decodedToken.Substring(0,
+                                                                 decodedToken.IndexOf(":",
+                                                                                      System.StringComparison.Ordinal));
+                        string password =
+                            decodedToken.Substring(decodedToken.IndexOf(":", System.StringComparison.Ordinal) + 1);
+
+                        User user = userRepository.GetSingle(u => u.Login == username && u.Password == password);
+                        if (user != null)
+                        {
+                            base.OnActionExecuting(actionContext);
+                            return;
+                        }
                     }
                 }
                 catch(FormatException)

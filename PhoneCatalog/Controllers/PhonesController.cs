@@ -23,7 +23,6 @@ namespace PhoneCatalog.Controllers
         private static readonly MongoRepository<Phone> phoneRepository = new MongoRepository<Phone>();
 
         // GET api/phones
-//        [BasicAuthentication]
         public IEnumerable<Phone> GetPhones(string q = null, string sort = null, bool desc = false, int? limit = null, int offset = 0)
         {
             MongoCursor<Phone> phones;
@@ -67,6 +66,7 @@ namespace PhoneCatalog.Controllers
         }
 
         // POST api/phones
+        [BasicAuthentication]
         [ModelValidationFilter]
         public Phone Post([FromBody]Phone phone)
         {
@@ -75,6 +75,7 @@ namespace PhoneCatalog.Controllers
         }
 
         // PUT api/phones/5172b45dd273a00a303ea054
+        [BasicAuthentication]
         public void Put(string id, [FromBody]Phone phone)
         {
             phone.Id = id;
@@ -82,6 +83,7 @@ namespace PhoneCatalog.Controllers
         }
 
         // DELETE api/phones/5172b45dd273a00a303ea054
+        [BasicAuthentication]
         public void Delete(string id)
         {
             if (!phoneRepository.Delete(id))

@@ -16,14 +16,19 @@ CatalogApp.config(function($routeProvider) {
   $httpProvider.responseInterceptors.push('AuthHttpInterceptor');
 });
 
-// CatalogApp.run(function($rootScope, $location, User) {
-//   $rootScope.$on('$routeChangeStart', function(event, next, current) {
-//     if (!User.isAuthenticated() && next.templateUrl !== '/Templates/login.html')
-//     {
-//       User.tryAuthWithOldData(function(successful) {
-//         if (!successful)w
-//           $location.path('/login');
-//       });
-//     }
-//   });
-// });
+CatalogApp.run(function($rootScope, $location, User) {
+  // $rootScope.$on('$routeChangeStart', function(event, next, current) {
+  //   if (!User.isAuthenticated() && next.templateUrl !== '/Templates/login.html')
+  //   {
+  //     User.tryAuthWithOldData(function(successful) {
+  //       if (!successful)
+  //         $location.path('/login');
+  //     });
+  //   }
+  // });
+  User.tryAuthWithOldData(function(successful) {});
+
+  $rootScope.current_user = function() {
+    return User;
+  };
+});

@@ -13,7 +13,7 @@
 
       <div class="comparation" ng-show="comparingItemsCount() > 0">
         <a class="btn btn-primary" ng-show="comparingItemsCount() > 1" href="#/phones/compare">Сравнить: {{comparingItemsCount()}}</a>
-        <button class="btn btn-warning" ng-show="comparingItemsCount() > 1" ng-click="clearComparingItems()">Очистить</button>
+        <button class="btn btn-warning" ng-show="comparingItemsCount() > 0" ng-click="clearComparingItems()">Очистить</button>
         <ul class="unstyled">
           <li ng-repeat="(id, phone) in comparingItems()" class="well well-small">
             <img ng-src="/Images/phones/{{phone.ImageUrl}}"></img>
@@ -34,6 +34,7 @@
             <!-- <th sorted="Make">Производитель</th>
             <th sorted="Model">Модель</th> -->
             <th></th>
+            <th ng-show="current_user().isAuthenticated()"></th>
           </thead>
           <tbody infinite-scroll="show_more()" infinite-scroll-distance="1" infinite-scroll-disabled="!canLoadMore()" >
             <tr ng-repeat="phone in phones">
@@ -49,10 +50,10 @@
                 <a href="#/phones/{{phone.Id}}"><strong>{{phone.Make}} {{phone.Model}}</strong></a>
                 <div>{{phone.summary()}}</div>
               </td>
-              <!-- <td>
-                <a href="#/phones/{{phone.Id}}"><i class="icon-th-list"></i> Details</a>
-                <a href="#/phones/{{phone.Id}}/delete"><i class="icon-trash"></i> Delete</a>
-              </td> -->
+              <td ng-show="current_user().isAuthenticated()">
+                <a href="#/phones/{{phone.Id}}"><i class="icon-th-list"></i> </a>
+                <a ng-controller="DeleteCtrl" ng-click="deletePhone(phone.Id)"><i class="icon-trash"></i></a>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -63,5 +64,5 @@
 </div>
 
 <script>
-  $('#sidebar > div').affix()
+  $('#sidebar > div').affix({offset: { top: 60 }});
 </script>

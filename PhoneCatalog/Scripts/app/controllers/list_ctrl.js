@@ -1,4 +1,4 @@
-var ListCtrl = function($scope, $location, $http, Phone, Comparer) {
+var ListCtrl = function($scope, $location, $http, Phone, Comparer, User) {
   $scope.search = function() {
     $scope.is_busy = true;
     Phone.query({
@@ -65,7 +65,7 @@ var ListCtrl = function($scope, $location, $http, Phone, Comparer) {
 
   $scope.isSelectedForComparing = function(phone) {
     return !!Comparer.itemsToCompare[phone];
-  }
+  };
 
   $scope.sort_order = "Make";
   $scope.is_desc = false;
@@ -77,7 +77,15 @@ var ListCtrl = function($scope, $location, $http, Phone, Comparer) {
     return $http.get('/api/phones/type_ahead?text=' + text).then(function(response) {
       return response.data;
     });
-  }
+  };
+
+  $scope.saveSelectedToLocalStorage = function() {
+
+  };
+
+  $scope.restoreSelectedFromLocalStorage = function() {
+
+  };
 
   $scope.reset();
 };
