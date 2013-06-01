@@ -3,7 +3,11 @@
     <table class="table table-bordered">
       <tr>
         <td></td>
-        <td class="image" ng-repeat="phone in comparingItems()"><img ng-src="/Images/phones/{{phone.ImageUrl}}"></img></td>
+        <td class="image" ng-repeat="phone in comparingItems()">
+          <a href="#/phones/{{phone.Id}}">
+            <img ng-src="/Images/phones/{{phone.ImageUrl}}"></img>
+          </a>
+        </td>
       </tr>
       <tr class="info">
         <td colspan="{{1 + comparingItemsCount()}}">Основные</td>

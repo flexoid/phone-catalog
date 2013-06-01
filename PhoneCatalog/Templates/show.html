@@ -1,5 +1,9 @@
 <div class="row">
   <div class="span12">
+    <p ng-show="current_user().isAuthenticated()">
+      <a class="btn btn-primary" href="#/phones/{{phone.Id}}/edit">Редактировать телефон</a>
+    </p>
+
     <h2>Характеристики</h2>
 
     <table class="table table-bordered">

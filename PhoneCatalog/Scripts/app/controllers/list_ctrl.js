@@ -1,4 +1,4 @@
-var ListCtrl = function($scope, $location, $http, Phone, Comparer, User) {
+var ListCtrl = function($scope, $location, $http, Phone, Comparer, User, localStorageService) {
   $scope.search = function() {
     $scope.is_busy = true;
     Phone.query({
@@ -49,6 +49,7 @@ var ListCtrl = function($scope, $location, $http, Phone, Comparer, User) {
 
   $scope.compareCheckboxChanged = function(phone) {
     Comparer.updateComparingState(phone);
+    $scope.saveSelectedToLocalStorage();
   };
 
   $scope.comparingItemsCount = function() {
@@ -61,6 +62,7 @@ var ListCtrl = function($scope, $location, $http, Phone, Comparer, User) {
 
   $scope.clearComparingItems = function() {
     Comparer.reset();
+    $scope.clearSelectedInLocalStorage();
   };
 
   $scope.isSelectedForComparing = function(phone) {
@@ -77,14 +79,6 @@ var ListCtrl = function($scope, $location, $http, Phone, Comparer, User) {
     return $http.get('/api/phones/type_ahead?text=' + text).then(function(response) {
       return response.data;
     });
-  };
-
-  $scope.saveSelectedToLocalStorage = function() {
-
-  };
-
-  $scope.restoreSelectedFromLocalStorage = function() {
-
   };
 
   $scope.reset();

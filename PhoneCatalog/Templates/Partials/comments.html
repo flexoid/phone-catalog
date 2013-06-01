@@ -8,7 +8,7 @@
   </div>
 
   <div ng-controller="CommentsCtrl">
-    <form>
+    <form ng-submit="addComment()">
       <fieldset>
         <legend>Add new comment</legend>
         <label>Author name</label>
@@ -16,7 +16,7 @@
         <label>Text</label>
         <textarea name="text" ng-model="text" required></textarea>
         <br>
-        <button type="submit" ng-click="addComment()" class="btn">Save</button>
+        <button type="submit" class="btn">Save</button>
       </fieldset>
     </form>
   </div>

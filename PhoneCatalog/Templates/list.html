@@ -3,6 +3,10 @@
 <div class="row">
   <div id="sidebar" class="span4">
     <div>
+      <p ng-show="current_user().isAuthenticated()">
+        <a class="btn btn-primary" href="#/phones/add">Добавить телефон</a>
+      </p>
+
        <form class="form-search">
           <div class="input-append">
               <input type="text" ng-model="query" ng-change="reset()" class="input-medium search-query" placeholder="Search">
@@ -51,7 +55,7 @@
                 <div>{{phone.summary()}}</div>
               </td>
               <td ng-show="current_user().isAuthenticated()">
-                <a href="#/phones/{{phone.Id}}"><i class="icon-th-list"></i> </a>
+                <a href="#/phones/{{phone.Id}}/edit"><i class="icon-th-list"></i> </a>
                 <a ng-controller="DeleteCtrl" ng-click="deletePhone(phone.Id)"><i class="icon-trash"></i></a>
               </td>
             </tr>

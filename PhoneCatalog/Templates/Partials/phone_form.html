@@ -1,0 +1,107 @@
+<form class="form-horizontal" ng-submit="form_submit()">
+  <legend>{{form_legend}}</legend>
+
+  <div class="control-group">
+    <label class="control-label" for="make">Производитель</label>
+    <div class="controls">
+      <input type="text" ng-model="phone.Make" id="make" placeholder="Производитель" required>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="model">Модель</label>
+    <div class="controls">
+      <input type="text" ng-model="phone.Model" id="model" placeholder="Модель" required>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="date">Дата выхода</label>
+    <div class="controls">
+      <input type="text" ng-model="phone.Date" id="date" placeholder="Дата выхода">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="type">Тип</label>
+    <div class="controls">
+      <input type="text" ng-model="phone.Type" id="type" placeholder="Тип">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="os">Операционная система</label>
+    <div class="controls">
+      <input type="text" ng-model="phone.OS" id="os" placeholder="Операционная система">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="processor">Процессор</label>
+    <div class="controls">
+      <input type="text" ng-model="phone.Processor" id="processor" placeholder="Процессор">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="clock">Тактовая частота</label>
+    <div class="controls">
+      <input type="text" ng-model="phone.Clock" id="clock" placeholder="Тактовая частота">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="batteryCapacity">Емкость батареи</label>
+    <div class="controls">
+      <input type="text" ng-model="phone.BatteryCapacity" id="batteryCapacity" placeholder="Емкость батареи">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="length">Длина</label>
+    <div class="controls">
+      <input type="text" ng-model="phone.Length" id="length" placeholder="Длина">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="width">Ширина</label>
+    <div class="controls">
+      <input type="text" ng-model="phone.Width" id="width" placeholder="Ширина">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="thickness">Толщина</label>
+    <div class="controls">
+      <input type="text" ng-model="phone.Thickness" id="thickness" placeholder="Толщина">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="weight">Вес</label>
+    <div class="controls">
+      <input type="text" ng-model="phone.Weight" id="weight" placeholder="Вес">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="resolution">Разрешение камеры</label>
+    <div class="controls">
+      <input type="text" ng-model="phone.Resolution" id="resolution" placeholder="Разрешение камеры">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="cameraPixelCount">Количество пикселей матрицы</label>
+    <div class="controls">
+      <input type="text" ng-model="phone.CameraPixelCount" id="cameraPixelCount" placeholder="Количество пикселей матрицы">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn">Сохранить</button>
+    </div>
+  </div>
+</form>

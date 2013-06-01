@@ -4,7 +4,7 @@
     <ul class="nav">
       <li><a href="#">Home</a></li>
       <li ng-hide="current_user().isAuthenticated()"><a href="#/login">Sign in</a></li>
-      <li ng-controller="LogoutCtrl" ng-show="current_user().isAuthenticated()"><a ng-click="sign_out()" href="#/logout">Sign out</a></li>
+      <li ng-controller="LogoutCtrl" ng-show="current_user().isAuthenticated()"><a ng-click="sign_out()" href="">Sign out</a></li>
     </ul>
   </div>
 </div>
