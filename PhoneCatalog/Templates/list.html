@@ -19,7 +19,7 @@
         <a class="btn btn-primary" ng-show="comparingItemsCount() > 1" href="#/phones/compare">Сравнить: {{comparingItemsCount()}}</a>
         <button class="btn btn-warning" ng-show="comparingItemsCount() > 0" ng-click="clearComparingItems()">Очистить</button>
         <ul class="unstyled">
-          <li ng-repeat="(id, phone) in comparingItems()" class="well well-small">
+          <li ng-animate="'animate'" ng-repeat="(id, phone) in comparingItems()" class="well well-small">
             <img ng-src="/Images/phones/{{phone.ImageUrl}}"></img>
             {{phone.Make}} {{phone.Model}}
           </li>

@@ -2,9 +2,9 @@
   <div class="navbar-inner">
     <a class="brand" href="#">Phone Catalog</a>
     <ul class="nav">
-      <li><a href="#">Home</a></li>
-      <li ng-hide="current_user().isAuthenticated()"><a href="#/login">Sign in</a></li>
-      <li ng-controller="LogoutCtrl" ng-show="current_user().isAuthenticated()"><a ng-click="sign_out()" href="">Sign out</a></li>
+      <li><a href="#">Список</a></li>
+      <li ng-hide="current_user().isAuthenticated()"><a href="#/login">Войти</a></li>
+      <li ng-controller="LogoutCtrl" ng-show="current_user().isAuthenticated()"><a ng-click="sign_out()" href="">Выйти</a></li>
     </ul>
   </div>
 </div>
